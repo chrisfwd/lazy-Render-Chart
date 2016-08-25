@@ -10,18 +10,68 @@
         <title>Scroll To Chart</title>
 
         <style>
-            .chart-container {
-                margin: 200px auto 0 auto;
-                width: 50%;
+            .page {
+                margin: 0 auto;
             }
+            @media (min-width: 760px){
+                .page {
+                    width: 75%;
+                }
+            }
+            @media (min-width: 1500px){
+                .page {
+                    width: 50%;
+                }
+            }
+
+            .row {
+                clear:both;
+                margin: 150px 0;
+            }
+            [class*="col"] {
+                margin: 0;
+            }
+            .col50 {
+                display: inline-block;
+                width: 49%;
+            }
+
         </style>
 
     </head>
 
     <body>
 
-        <div class="chart-container">
-            <canvas id="chart"></canvas>
+        <div class="page">
+
+            <div class="chart-container row">
+                <canvas id="chart" class="chartCanvas"></canvas>
+            </div>
+
+            <div class="chart-container row">
+                <canvas id="chart2" class="chartCanvas"></canvas>
+            </div>
+
+            <div class="row">
+
+                <div class="col50">
+                    <div class="chart-container">
+                        <canvas id="chart3" class="chartCanvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="col50">
+                    <div class="chart-container">
+                        <canvas id="chart4" class="chartCanvas"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="chart-container row">
+                <canvas id="chart5" class="chartCanvas"></canvas>
+            </div>
+
         </div>
 
 
@@ -35,9 +85,7 @@
                 window.$ = $;
                 window.jQuery = $;
 
-                System.import('app').then( function(app){
-                    window.app = new app.App();
-                });
+                System.import('app');
             });
 
         </script>
