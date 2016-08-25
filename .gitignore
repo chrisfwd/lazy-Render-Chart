@@ -1,0 +1,8 @@
+
+# Dependency directories
+node_modules
+jspm_packages
+
+# Jetbrains Webstorm files
+**/.idea/workspace.xml
+**/.idea/tasks.xml
