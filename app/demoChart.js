@@ -18,8 +18,8 @@ export class DemoChart {
 
             this.createChart();
 
-            // set offset depending on element height
-            this.$element.attr('data-appear-top-offset', -(this.$element.height() * .7) );
+            this.setAppearTopOffset(this.$element);
+
 
             // apply appear to chart element
             this.$element.appear();
@@ -34,6 +34,8 @@ export class DemoChart {
                 $(document.body).off('appear', '#'+this.element.id);
 
             });
+
+            $.force_appear();
 
         });
 
@@ -81,6 +83,17 @@ export class DemoChart {
             }
         });
 
+    }
+
+    setAppearTopOffset($el){
+        // set offset depending on element height
+        var attr = $el.attr('data-appear-top-offset');
+
+        // only add attribute if element doesnt already have it
+        // For some browsers, `attr` is undefined; for others, `attr` is false. Check for both.
+        if (typeof attr === typeof undefined || attr === false) {
+            $el.attr('data-appear-top-offset', -($el.height()) );
+        }
     }
 
     createChartStartingData(numArray){
