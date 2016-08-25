@@ -11,7 +11,7 @@ export class App {
 
         $( () => {
 
-            var ctx = $("#chart");
+            this.ctx = $("#chart");
             this.createChart();
 
             // apply appear to chart element
@@ -23,7 +23,7 @@ export class App {
                 this.chart.data.datasets[0].data = this.chartData;
                 this.chart.update();
 
-                console.log('appeared');
+                console.log('appeared', this.chart.data.datasets[0].data);
                 $(document.body).off('appear', "#chart");
 
             });
@@ -34,7 +34,7 @@ export class App {
 
     createChart(){
 
-        this.chart = new Chart(ctx, {
+        this.chart = new Chart(this.ctx, {
             type: 'bar',
             data: {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -79,6 +79,6 @@ export class App {
     }
 
     findMax(numArray){
-        return Math.ceil(Math.max(numArray) / 10) * 10;
+        return Math.ceil(Math.max(...numArray) / 10) * 10;
     }
 }

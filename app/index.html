@@ -11,7 +11,8 @@
 
         <style>
             .chart-container {
-                margin-top: 200px;
+                margin: 200px auto 0 auto;
+                width: 50%;
             }
         </style>
 
@@ -29,9 +30,16 @@
         <script type="text/javascript" src="config.js"></script>
 
         <script>
-            System.import('app').then( function(app){
-                window.app = new app.App();
+            System.import('jquery').then(function($){
+
+                window.$ = $;
+                window.jQuery = $;
+
+                System.import('app').then( function(app){
+                    window.app = new app.App();
+                });
             });
+
         </script>
 
     </body>

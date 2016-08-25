@@ -40,6 +40,9 @@
     }
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-jspm": "^0.5.13",
     "jspm": "^0.16.45"
   }
 }
